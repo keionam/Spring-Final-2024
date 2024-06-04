@@ -1,0 +1,308 @@
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class EnglishBot {
+    public static void main(String[] args) {
+        ArrayList<String> juliusCaesarQuotes = new ArrayList<>(Arrays.asList(
+            "Beware the ides of March.", "Et tu, Brute?", "Friends, Romans, countrymen, lend me your ears.",
+            "Cowards die many times before their deaths; the valiant never taste of death but once.",
+            "Cry havoc and let slip the dogs of war.", "This was the noblest Roman of them all.",
+            "The fault, dear Brutus, is not in our stars, but in ourselves, that we are underlings.",
+            "When beggars die, there are no comets seen; the heavens themselves blaze forth the death of princes.",
+            "Yond Cassius has a lean and hungry look; he thinks too much: such men are dangerous.",
+            "Men at some time are masters of their fates.", "I am constant as the northern star.",
+            "But for mine own part, it was Greek to me.", "Speak, hands, for me!",
+            "The evil that men do lives after them; the good is oft interred with their bones.",
+            "Not that I loved Caesar less, but that I loved Rome more.",
+            "There is a tide in the affairs of men, which, taken at the flood, leads on to fortune.",
+            "O Julius Caesar, thou art mighty yet!", "The ides of March are come. Aye, Caesar; but not gone.",
+            "It is the bright day that brings forth the adder.", "He doth bestride the narrow world like a Colossus.",
+            "Let me have men about me that are fat.", "But I am as constant as the northern star.",
+            "Men’s minds are wretched, and will not relish in the calmness and goodness.",
+            "Poor man! I know he would not be a wolf, but that he sees the Romans are but sheep.",
+            "I have a man's mind, but a woman's might.", "Cassius from bondage will deliver Cassius.",
+            "And this man is now become a god.", "I do fear the people choose Caesar for their king.",
+            "As he was valiant, I honor him; but, as he was ambitious, I slew him.",
+            "There is no terror, Cassius, in your threats.", "Good friends, go in, and taste some wine with me; and we, like friends, will straightway go together."
+        ));
+
+        ArrayList<String> lordOfTheFliesQuotes = new ArrayList<>(Arrays.asList(
+            "We did everything adults would do. What went wrong?",
+            "The thing is - fear can't hurt you any more than a dream.",
+            "Maybe there is a beast… maybe it's only us.",
+            "The greatest ideas are the simplest.",
+            "The mask was a thing on its own, behind which Jack hid, liberated from shame and self-consciousness.",
+            "Ralph wept for the end of innocence, the darkness of man’s heart, and the fall through the air of the true, wise friend called Piggy.",
+            "The world, that understandable and lawful world, was slipping away.",
+            "What are we? Humans? Or animals? Or savages?",
+            "The rules! You're breaking the rules!",
+            "Fancy thinking the Beast was something you could hunt and kill!",
+            "What I mean is… maybe it’s only us.",
+            "I am frightened. Of us.",
+            "Ralph was a specialist in thought now, and could recognize thought in another.",
+            "The fire is the most important thing on the island. How can we ever be rescued except by luck, if we don't keep a fire going?",
+            "Which is better, law and rescue, or hunting and breaking things up?",
+            "He began to dance and his laughter became a bloodthirsty snarling.",
+            "The beast was harmless and horrible; and the news must reach the others as soon as possible.",
+            "There were no words, and no movements but the tearing of teeth and claws.",
+            "The skull regarded Ralph like one who knows all the answers and won’t tell.",
+            "Memory of the dance that none of them had attended shook all four boys convulsively.",
+            "There’s no village smoke, and no boats, only the mountain and the patch where they were.",
+            "Ralph wept for the end of innocence, the darkness of man’s heart, and the fall through the air of the true, wise friend called Piggy.",
+            "He forgot his wounds, his hunger and thirst, and became fear; hopeless fear on flying feet.",
+            "The rock struck Piggy a glancing blow from chin to knee; the conch exploded into a thousand white fragments and ceased to exist.",
+            "The water rose farther and dressed Simon’s coarse hair with brightness.",
+            "Piggy’s arms and legs twitched a bit, like a pig’s after it has been killed.",
+            "Kill the pig! Cut his throat! Kill the pig! Bash him in!",
+            "He capered toward Bill, and the mask was a thing on its own, behind which Jack hid, liberated from shame and self-consciousness.",
+            "The conch exploded into a thousand white fragments and ceased to exist.",
+            "Ralph was a specialist in thought now, and could recognize thought in another."
+        ));
+
+        ArrayList<String> greatGatsbyQuotes = new ArrayList<>(Arrays.asList(
+            "So we beat on, boats against the current, borne back ceaselessly into the past.",
+            "I hope she'll be a fool — that's the best thing a girl can be in this world, a beautiful little fool.",
+            "There are only the pursued, the pursuing, the busy and the tired.",
+            "Gatsby believed in the green light, the orgastic future that year by year recedes before us.",
+            "In his blue gardens men and girls came and went like moths among the whisperings and the champagne and the stars.",
+            "I was within and without, simultaneously enchanted and repelled by the inexhaustible variety of life.",
+            "He smiled understandingly - much more than understandingly. It was one of those rare smiles with a quality of eternal reassurance in it.",
+            "Angry, and half in love with her, and tremendously sorry, I turned away.",
+            "It takes two to make an accident.",
+            "Life starts all over again when it gets crisp in the fall.",
+            "They're a rotten crowd. You're worth the whole damn bunch put together.",
+            "I like large parties. They're so intimate. At small parties there isn't any privacy.",
+            "I was privy to the secret griefs of wild, unknown men.",
+            "His dream must have seemed so close that he could hardly fail to grasp it.",
+            "No amount of fire or freshness can challenge what a man will store up in his ghostly heart.",
+            "There must have been moments even that afternoon when Daisy tumbled short of his dreams.",
+            "People disappeared, reappeared, made plans to go somewhere, and then lost each other, searched for each other, found each other a few feet away.",
+            "Dishonesty in a woman is a thing you never blame deeply.",
+            "Gatsby? What Gatsby?",
+            "I wasn’t actually in love, but felt a sort of tender curiosity.",
+            "So we drove on toward death through the cooling twilight.",
+            "I had that familiar conviction that life was beginning over again with the summer.",
+            "His dream must have seemed so close that he could hardly fail to grasp it.",
+            "There are only the pursued, the pursuing, the busy and the tired.",
+            "Let us learn to show our friendship for a man when he is alive and not after he is dead.",
+            "It was one of those rare smiles with a quality of eternal reassurance in it, that you may come across four or five times in life.",
+            "He had one of those rare smiles with a quality of eternal reassurance in it, that you may come across four or five times in life.",
+            "They're a rotten crowd. You're worth the whole damn bunch put together.",
+            "I like large parties. They’re so intimate. At small parties there isn’t any privacy.",
+            "I was within and without, simultaneously enchanted and repelled by the inexhaustible variety of life."
+        ));
+
+        ArrayList<String> kindredQuotes = new ArrayList<>(Arrays.asList(
+            "I lost an arm on my last trip home. My left arm.",
+            "I closed my eyes and saw the children playing, running, laughing. In my mind, they became the children of the quarters.",
+            "The boy’s back was marked with welts. I felt the pain as though it were mine.",
+            "I never realized how easily people could be trained to accept slavery.",
+            "It was the children who revealed what life had done to them.",
+            "I was afraid. But not for me.",
+            "I wondered how many people I would have to see die before I realized that even a death in the family wasn't the end of the world.",
+            "Rufus said his father was going to whip him. He said it as though it were an ordinary event, and I realized it probably was.",
+            "I knew there was something about my survival that depended on his.",
+            "Time passed, and I got to know him better.",
+            "I could accept him as my ancestor, but not as my master.",
+            "I stared at her, disbelieving. She was a slave.",
+            "She would have to be careful about speaking her mind.",
+            "I could see that he was a master who cared about his slaves.",
+            "He had the sense to realize that slaves were human beings.",
+            "She had been whipped, and I had been there.",
+            "I wanted to be a good girl, but I couldn’t.",
+            "I was angry at her for being what she was, but I had to admit that she had made the best of a bad situation.",
+            "I tried to imagine what it would be like to be her.",
+            "I knew he would come. I knew he would help me.",
+            "I was his property, and he could do with me what he pleased.",
+            "I wanted to hate him, but I couldn’t.",
+            "I tried to imagine what it would be like to be her.",
+            "I knew he would come. I knew he would help me."
+        ));
+
+        ArrayList<String> allQuietQuotes = new ArrayList<>(Arrays.asList(
+            "We are forlorn like children, and experienced like old men, we are crude and sorrowful and superficial—I believe we are lost.",
+            "This book is to be neither an accusation nor a confession, and least of all an adventure, for death is not an adventure to those who stand face to face with it.",
+            "We were eighteen and had begun to love life and the world; and we had to shoot it to pieces.",
+            "It is very queer that the unhappiness of the world is so often brought on by small men.",
+            "We have so much to say, and we shall never say it.",
+            "He fell in October 1918, on a day that was so quiet and still on the whole front, that the army report confined itself to the single sentence: All quiet on the Western Front.",
+            "We are little flames poorly sheltered by frail walls against the storm of dissolution and madness, in which we flicker and sometimes almost go out.",
+            "A hospital alone shows what war is.",
+            "It's all rot that they put in the war news about what one does out there.",
+            "Kropp on the other hand is a thinker. He proposes that a declaration of war should be a kind of popular festival with entrance-tickets and bands.",
+            "We are no longer untroubled—we are indifferent.",
+            "A man dreams of a miracle and wakes up to loaves of bread.",
+            "To me the front is a mysterious whirlpool.",
+            "We are brothers in arms, comrades in suffering.",
+            "But now, for the first time, I see you are a man like me.",
+            "The wisest were just the poor and simple people.",
+            "I am young, I am twenty years old; yet I know nothing of life but despair, death, fear, and fatuous superficiality cast over an abyss of sorrow.",
+            "We have lost all feeling for one another. We can hardly control ourselves when our comrades are tortured before our eyes.",
+            "The war has ruined us for everything.",
+            "We are forlorn like children, and experienced like old men, we are crude and sorrowful and superficial—I believe we are lost.",
+            "This book is to be neither an accusation nor a confession, and least of all an adventure, for death is not an adventure to those who stand face to face with it.",
+            "We were eighteen and had begun to love life and the world; and we had to shoot it to pieces.",
+            "It is very queer that the unhappiness of the world is so often brought on by small men.",
+            "We have so much to say, and we shall never say it.",
+            "He fell in October 1918, on a day that was so quiet and still on the whole front, that the army report confined itself to the single sentence: All quiet on the Western Front.",
+            "We are little flames poorly sheltered by frail walls against the storm of dissolution and madness, in which we flicker and sometimes almost go out.",
+            "A hospital alone shows what war is.",
+            "It's all rot that they put in the war news about what one does out there.",
+            "Kropp on the other hand is a thinker. He proposes that a declaration of war should be a kind of popular festival with entrance-tickets and bands.",
+            "We are no longer untroubled—we are indifferent."
+        ));
+
+        ArrayList<String> thingsTheyCarriedQuotes = new ArrayList<>(Arrays.asList(
+            "They carried all the emotional baggage of men who might die.",
+            "They carried the land itself—Vietnam, the place, the soil—a powdery orange-red dust that covered their boots and fatigues and faces.",
+            "They carried the sky.",
+            "They carried their own lives. The pressures were enormous.",
+            "They carried their reputations.",
+            "They carried the soldier's greatest fear, which was the fear of blushing.",
+            "They carried the common secret of cowardice barely restrained.",
+            "They carried diseases, among them malaria and dysentery.",
+            "They carried lice and ringworm and leeches.",
+            "They carried the smell of themselves.",
+            "They carried the land itself.",
+            "They carried the sky.",
+            "They carried the gravity.",
+            "They carried the weight of memory.",
+            "They carried the weight of imagination.",
+            "They carried all the emotional baggage of men who might die.",
+            "They carried shameful memories.",
+            "They carried the soldier's greatest fear.",
+            "They carried the land itself.",
+            "They carried the sky.",
+            "They carried the gravity.",
+            "They carried the weight of memory.",
+            "They carried the weight of imagination.",
+            "They carried all the emotional baggage of men who might die.",
+            "They carried shameful memories.",
+            "They carried the soldier's greatest fear.",
+            "They carried the land itself.",
+            "They carried the sky.",
+            "They carried the gravity.",
+            "They carried the weight of memory."
+        ));
+
+        ArrayList<String> raisinInTheSunQuotes = new ArrayList<>(Arrays.asList(
+            "What happens to a dream deferred?",
+            "Maybe it just sags like a heavy load.",
+            "Or does it explode?",
+            "Mama, you know it's all divided up. Life is. Sure enough.",
+            "There ain't no such thing as a broken heart. There is always something left to love.",
+            "You sure one proud-acting bunch of colored folks.",
+            "I want so many things that they are driving me kind of crazy.",
+            "It's simple. You read books—to learn facts—to get good grades—to pass the course—to get a degree. That's all—it has nothing to do with thoughts.",
+            "I’m just tired of hearing about God all the time. What has He got to do with anything?",
+            "Child, when do you think is the time to love somebody the most? When they done good and made things easy for everybody?",
+            "No—there's something come down between me and them that don't let us understand each other.",
+            "No! 'Cause ain't nobody with me! Not even my own mother!",
+            "Son—you— you—you are a disgrace to your father's memory.",
+            "No—you see—he made his own future. But, child, you got a legacy behind you. We all got to be concerned about your generation.",
+            "There simply is no blasted god—there is only man and it is he who makes miracles!",
+            "In my mother’s house there is still God.",
+            "I’m telling you to be the head of this family from now on like you supposed to be.",
+            "I wanted to do that. I always thought it was the one concrete thing in the world that a human being could do.",
+            "I don't mean for yourself and for the family 'cause we lost the money. I mean for him: what he been through and what it done to him.",
+            "You—you are a disgrace to your father's memory.",
+            "Sometimes it hard to let the future begin.",
+            "Son—I come from five generations of people who was slaves and sharecroppers—but ain't nobody in my family never let nobody pay 'em no money that was a way of telling us we wasn't fit to walk the earth.",
+            "But Lord, child, you should know all the dreams I had 'bout buying that house and fixin' it up and making me a little garden in the back—And it ain't no cause—you been quit school so long.",
+            "No! 'Cause ain't nobody with me! Not even my own mother!",
+            "We ain’t never been that poor. We ain’t never been that—dead inside.",
+            "You pregnant?",
+            "There ain't no causes—there's only people.",
+            "You run our lives like you want to.",
+            "I’m telling you to be the head of this family from now on like you supposed to be.",
+            "In my mother’s house there is still God."
+        ));
+
+        Scanner quoteFinder = new Scanner(System.in);
+        while (true) {
+            System.out.println("Would you like a quote or analysis?");
+            String response = quoteFinder.nextLine();
+
+            if (response.equalsIgnoreCase("quote")) {
+                System.out.println("Which book would you like a quote from?");
+                String bookResponse = quoteFinder.nextLine();
+
+                ArrayList<String> selectedQuotes = null;
+                if (bookResponse.equalsIgnoreCase("julius caesar")) {
+                    selectedQuotes = juliusCaesarQuotes;
+                } else if (bookResponse.equalsIgnoreCase("lord of the flies")) {
+                    selectedQuotes = lordOfTheFliesQuotes;
+                } else if (bookResponse.equalsIgnoreCase("the great gatsby")) {
+                    selectedQuotes = greatGatsbyQuotes;
+                } else if (bookResponse.equalsIgnoreCase("kindred")) {
+                    selectedQuotes = kindredQuotes;
+                } else if (bookResponse.equalsIgnoreCase("all quiet on the western front")) {
+                    selectedQuotes = allQuietQuotes;
+                } else if (bookResponse.equalsIgnoreCase("the things they carried")) {
+                    selectedQuotes = thingsTheyCarriedQuotes;
+                } else if (bookResponse.equalsIgnoreCase("a raisin in the sun")) {
+                    selectedQuotes = raisinInTheSunQuotes;
+                } else {
+                    System.out.println("Sorry, I don't have quotes for that book.");
+                    continue;
+                }
+
+                if (selectedQuotes != null) {
+                    System.out.println("Enter a number between 0 and " + (selectedQuotes.size() - 1) + " to select a quote:");
+                    int index = quoteFinder.nextInt();
+                    quoteFinder.nextLine(); // Consume the newline character
+
+                    if (index >= 0 && index < selectedQuotes.size()) {
+                        System.out.println(selectedQuotes.get(index));
+                    } else {
+                        System.out.println("Invalid number. Please try again.");
+                    }
+
+                    System.out.println("Would you like another quote or a new book? (quote/new book)");
+                    String nextStep = quoteFinder.nextLine();
+                    if (nextStep.equalsIgnoreCase("new book")) {
+                        continue;
+                    } else if (!nextStep.equalsIgnoreCase("quote")) {
+                        continue;
+                    }
+                }
+            } else if (response.equalsIgnoreCase("analysis")) {
+                System.out.println("Which book would you like an analysis of?");
+                String bookResponse = quoteFinder.nextLine();
+
+                if (bookResponse.equalsIgnoreCase("julius caesar")) {
+                    System.out.println("Julius Caesar by William Shakespeare is a tragic play that explores the political dynamics and personal betrayals leading to the assassination of Julius Caesar. It delves into themes of ambition, power, and loyalty, highlighting how the quest for control can lead to moral corruption and civil strife. The play also examines the consequences of political actions and the fickleness of public opinion. Key characters, such as Brutus and Cassius, represent the complex interplay of personal ethics and political expediency. Ultimately, the play questions the nature of honor and the impact of leadership on society.");
+                } else if (bookResponse.equalsIgnoreCase("lord of the flies")) {
+                    System.out.println("Lord of the Flies by William Golding is a novel about a group of boys stranded on a deserted island who attempt to govern themselves with disastrous results. The story illustrates the descent into savagery and the inherent darkness within human nature when societal structures are removed. Themes of power, civilization versus barbarism, and the loss of innocence are central to the narrative. Golding uses symbolism, such as the conch shell and the titular 'Lord of the Flies,' to explore the fragility of human morality. The novel ultimately suggests that without the constraints of society, humans revert to their primal instincts.");
+                } else if (bookResponse.equalsIgnoreCase("the great gatsby")) {
+                    System.out.println("The Great Gatsby by F. Scott Fitzgerald is a critique of the American Dream, set in the Roaring Twenties. The novel follows the mysterious and wealthy Jay Gatsby and his unrequited love for Daisy Buchanan. Through Gatsby's tragic pursuit of an idealized past and his ultimate downfall, Fitzgerald explores themes of decadence, idealism, and social stratification. The narrative highlights the moral decay hidden beneath the glittering surface of wealth and excess. The green light at the end of Daisy's dock symbolizes Gatsby's unreachable dreams and the larger, unattainable American Dream.");
+                } else if (bookResponse.equalsIgnoreCase("kindred")) {
+                    System.out.println("Kindred by Octavia Butler is a science fiction novel that combines elements of historical fiction and slave narratives. The protagonist, Dana, an African-American woman, is mysteriously transported back in time to the antebellum South, where she encounters her ancestors. The novel explores themes of slavery, racism, and the complex relationships between oppressors and the oppressed. Through Dana's harrowing experiences, Butler examines the enduring impact of slavery on contemporary identity and the struggle for survival and dignity. Kindred challenges readers to confront the painful realities of history and their implications for the present.");
+                } else if (bookResponse.equalsIgnoreCase("all quiet on the western front")) {
+                    System.out.println("All Quiet on the Western Front by Erich Maria Remarque is a powerful anti-war novel that depicts the harrowing experiences of German soldiers during World War I. The story, told through the eyes of young soldier Paul Bäumer, reveals the brutal reality of trench warfare and its dehumanizing effects. Remarque's vivid descriptions highlight the physical and psychological trauma endured by soldiers, challenging the glorified image of war. The novel emphasizes themes of comradeship, loss of innocence, and the futility of conflict. Ultimately, it serves as a poignant commentary on the devastating impact of war on a generation.");
+                } else if (bookResponse.equalsIgnoreCase("the things they carried")) {
+                    System.out.println("The Things They Carried by Tim O'Brien is a collection of linked short stories about a platoon of American soldiers fighting in the Vietnam War. The book blurs the line between fiction and reality, exploring the emotional and psychological burdens carried by soldiers. Through various narratives, O'Brien delves into themes of fear, courage, and the elusiveness of truth in war. The titular 'things' symbolize both the physical items and the intangible memories and traumas that soldiers bear. The collection poignantly addresses the complexities of war, memory, and storytelling.");
+                } else if (bookResponse.equalsIgnoreCase("a raisin in the sun")) {
+                    System.out.println("A Raisin in the Sun by Lorraine Hansberry is a groundbreaking play that explores the struggles of a Black family in Chicago as they aspire for a better life. The Younger family's dreams and conflicts reflect broader issues of racial discrimination, economic hardship, and generational tension. The play highlights themes of identity, pride, and the pursuit of the American Dream in the face of systemic oppression. Hansberry's characters are richly drawn, revealing the nuanced dynamics of hope, despair, and resilience. The title, taken from a Langston Hughes poem, underscores the deferred dreams of African Americans and the quest for dignity and fulfillment.");
+                } else {
+                    System.out.println("Sorry, I don't have an analysis for that book.");
+                    continue;
+                }
+
+                System.out.println("Would you like another analysis or a new book? (quote/new book)");
+                String nextStep = quoteFinder.nextLine();
+                if (nextStep.equalsIgnoreCase("new book")) {
+                    continue;
+                } else if (!nextStep.equalsIgnoreCase("analysis")) {
+                    continue;
+                }
+            } else {
+                System.out.println("Invalid option. Please choose 'quote' or 'analysis'.");
+            }
+        }
+    }
+}
